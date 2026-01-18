@@ -5,7 +5,7 @@ export const resourceUploadSchema = z.object({
     description: z.string().min(10, 'Description must be at least 10 characters').max(2000, 'Description must be less than 2000 characters'),
     folder: z.string().min(1, 'Please select a folder'),
     tags: z.array(z.string()).min(1, 'At least one tag is required').max(10, 'Maximum 10 tags allowed'),
-    featured: z.boolean().default(false),
+    featured: z.boolean().optional().default(false),
 })
 
 export const resourceUpdateSchema = z.object({
