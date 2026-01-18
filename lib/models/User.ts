@@ -5,6 +5,8 @@ export interface IUser extends Document {
     email: string
     password?: string
     role: 'student' | 'tech' | 'admin'
+    image?: string
+    provider?: string
     bannedUntil?: Date
     preferences: {
         theme: 'light' | 'dark'
@@ -43,6 +45,12 @@ const UserSchema = new Schema<IUser>(
             enum: ['student', 'tech', 'admin'],
             default: 'student',
             required: true,
+        },
+        image: {
+            type: String,
+        },
+        provider: {
+            type: String,
         },
         bannedUntil: {
             type: Date,
