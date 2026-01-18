@@ -81,10 +81,10 @@ export const authOptions: NextAuthOptions = {
                 if (!existingUser) {
                     // Create new user for OAuth if doesn't exist
                     await User.create({
-                        name: user.name,
-                        email: user.email,
+                        name: user.name as string,
+                        email: user.email as string,
                         role: 'student', // Default role
-                        image: user.image,
+                        image: user.image as string || undefined,
                         provider: account.provider
                     })
                 }
