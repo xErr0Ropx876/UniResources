@@ -10,7 +10,7 @@
   },
   "description": "UniResources Hub - Educational resources platform for students",
   "dependencies": {
-    "@hookform/resolvers": "^5.2.2",
+    "@hookform/resolvers": "^3.10.0",
     "@tanstack/react-query": "^5.90.18",
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",

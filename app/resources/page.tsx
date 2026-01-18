@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Folder, FileText, Eye as EyeIcon, Eye, Star, Trash2, AlertTriangle, X } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
@@ -34,7 +34,7 @@ interface Breadcrumb {
     id: string | null
 }
 
-export default function ResourcesPage() {
+function ResourcesPageContent() {
     const searchParams = useSearchParams()
     const folderId = searchParams.get('folder')
 
@@ -461,5 +461,17 @@ export default function ResourcesPage() {
                 )}
             </div>
         </div>
+    )
+}
+
+export default function ResourcesPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                <div className="animate-spin w-12 h-12 border-4 border-accent border-t-transparent rounded-full"></div>
+            </div>
+        }>
+            <ResourcesPageContent />
+        </Suspense>
     )
 }

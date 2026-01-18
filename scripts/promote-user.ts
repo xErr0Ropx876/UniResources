@@ -3,7 +3,7 @@ import connectDB from '../lib/db/mongodb'
 import User from '../lib/models/User'
 
 const email = process.argv[2]
-const role = process.argv[3] || 'tech'
+const role = (process.argv[3] || 'tech') as 'student' | 'tech' | 'admin'
 
 if (!email) {
     console.error('Please provide an email address.')
