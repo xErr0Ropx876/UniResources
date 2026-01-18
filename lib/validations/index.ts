@@ -36,7 +36,7 @@ export const loginSchema = z.object({
     password: z.string().min(1, 'Password is required'),
 })
 
-export type ResourceUploadInput = z.infer<typeof resourceUploadSchema>
+export type ResourceUploadInput = z.input<typeof resourceUploadSchema>
 export type ResourceUpdateInput = z.infer<typeof resourceUpdateSchema>
 export type SearchFiltersInput = z.infer<typeof searchFiltersSchema>
 export type SignupInput = z.infer<typeof signupSchema>
